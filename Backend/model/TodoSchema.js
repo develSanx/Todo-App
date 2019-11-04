@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-//creating schema
 const todoSchema = new mongoose.Schema({
   todo_description: {
     type: String
@@ -16,5 +15,4 @@ const todoSchema = new mongoose.Schema({
   }
 });
 
-//exporting and creating model based on schema
 module.exports = mongoose.model("TodoList", todoSchema);
