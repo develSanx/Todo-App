@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const TodoList = require("../model/TodoSchema");
 
-//route to get all items from db
 router.get("/", (req, res) => {
   TodoList.find((error, todoItems) => {
     if (error) return res.status(404).send(error);
@@ -9,7 +8,6 @@ router.get("/", (req, res) => {
   });
 });
 
-//route to get one items from db
 router.get("/:id", (req, res) => {
   TodoList.findById(req.params.id, (error, todoItem) => {
     if (error) return res.status(404).send(error);
@@ -17,7 +15,6 @@ router.get("/:id", (req, res) => {
   });
 });
 
-//route to add an item
 router.post("/add", async (req, res) => {
   const NewItem = new TodoList(req.body);
   try {
@@ -28,7 +25,6 @@ router.post("/add", async (req, res) => {
   }
 });
 
-//update an item
 router.patch("/update/:id", async (req, res) => {
   try {
     await TodoList.updateOne({ _id: req.params.id }, { $set: req.body });
@@ -38,7 +34,6 @@ router.patch("/update/:id", async (req, res) => {
   }
 });
 
-//delete an item
 router.delete("/delete/:id", async (req, res) => {
   try {
     await TodoList.deleteOne({ _id: req.params.id });
