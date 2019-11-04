@@ -1,0 +1,13 @@
+body {
+  background-color: #282c34;
+  color: white;
+  font-size: 22px;
+}
+
+.nav-title {
+  color: rgb(58, 58, 58);
+}
+
+.complete {
+  text-decoration: line-through;
+}
